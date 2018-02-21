@@ -1,0 +1,32 @@
+<p>
+  <strong>Project_name:</strong>
+  <%= @project.project_name %>
+</p>
+ 
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Techonology:</strong>
+  <%= @project.technology.technology_name %>
+</p>
+
+<p>
+  <strong>Start_date:</strong>
+  <%= @project.start_date %>
+</p>
+
+<p>
+  <strong>End_date:</strong>
+  <%= @project.end_date %>
+</p>
+
+<p>
+  <strong>Project_cost:</strong>
+  <%= @project.project_cost %>
+</p>
+
+
+<%= link_to 'Back', root_path %>

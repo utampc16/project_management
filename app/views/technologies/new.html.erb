@@ -1,0 +1,12 @@
+<h2>New Techonology</h2>
+<%= form_with scope: :technology, url: technologies_path,  local: true do |form| %>  
+<p>
+    <%= form.label :technology_name %><br>
+    <%= form.text_field :technology_name %>
+</p>
+
+<p>
+    <%= form.submit %>
+</p>
+
+<% end %>

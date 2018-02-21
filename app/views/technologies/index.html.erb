@@ -1,0 +1,15 @@
+<h1>Listing Technologies</h1>
+ 
+<table>
+  <tr>
+    <th>Technology Name</th> 
+  </tr>
+ 
+  <% @technology.each do |technology| %>
+    <tr>
+      <td><%= technology.technology_name %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Back', new_technology_path %> 

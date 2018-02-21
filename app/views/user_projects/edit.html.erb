@@ -1,0 +1,28 @@
+<% if current_user.project_manager == true %>
+
+<%= form_for @user_project,  method: :PATCH,local: true do |form| %>  <p>
+    <%= form.label :project_id %><br>
+    <%= form.collection_select :project_id, Project.all,:id,:project_name, include_blank: true %>
+  </p>
+ 
+  <p>
+    <%= form.label :user_id %><br>
+    <%= form.collection_select :user_id, User.all,:id,:email, include_blank: true %>
+  </p> 
+
+  <p>
+    <%= form.label :task_id %><br>
+    <%= form.collection_select :task_id, Task.all,:id,:task_name, include_blank: true %>
+  </p> 
+
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>  
+<% else %>
+<% end %>
+
+
+<%= link_to 'Back', user_projects_path %>

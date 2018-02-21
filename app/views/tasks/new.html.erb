@@ -1,0 +1,12 @@
+<h2>Tasks</h2>
+<%= form_with scope: :task, url: tasks_path,  local: true do |form| %>  
+<p>
+    <%= form.label :task_name %><br>
+    <%= form.text_field :task_name %>
+</p>
+
+<p>
+    <%= form.submit %>
+</p>
+
+<% end %>

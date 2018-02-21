@@ -1,0 +1,16 @@
+<p>
+  <strong>User_name:</strong>
+  <%= @user_project.user.email%>
+</p>
+ 
+<p>
+  <strong>Project_name:</strong>
+  <%= @user_project.project.project_name %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @user_project.task.task_name %>
+</p>
+
+<%= link_to 'Back', user_projects_path %>

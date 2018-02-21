@@ -1,0 +1,9 @@
+<h2><b>Project Management</b></h2>
+<% if current_user.project_manager == true %>
+  <%= link_to 'New Project',  new_project_path %></br>
+  <%= link_to 'All Projects',  projects_path %></br>
+  <%= link_to 'Assign Project', new_user_project_path %></br>
+  <%= link_to 'Assigned Projects', user_projects_path %></br> 
+<% else %>
+  <%= link_to 'Assigned Projects', user_projects_path %> 
+<% end %>

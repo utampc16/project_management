@@ -28,5 +28,26 @@
   <%= @project.project_cost %>
 </p>
 
+<h2>Tasks</h2>
+<% @project.tasks.each do |task| %>
+  <p>
+    <strong>Task:</strong>
+    <%= task.task_name %>
+  </p>
+ 
+<% end %>
 
-<%= link_to 'Back', root_path %>
+<h2>Add a Task:</h2>
+<%= form_with(model: [ @project, @project.tasks.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :task_name %><br>
+    <%= form.text_field :task_name %>
+  </p>
+  
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+
+<%= link_to 'Back', project_path %>

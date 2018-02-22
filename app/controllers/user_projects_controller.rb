@@ -9,12 +9,12 @@ class UserProjectsController < ApplicationController
 
 	def create
         @user_project = UserProject.new(user_project_params)
-        if UserProject.where(project_id: params[:user_project][:project_id], user_id: params[:user_project][:user_id], task_id: params[:user_project][:task_id]).first.present?
+        if UserProject.where(project_id: params[:user_project][:project_id], user_id: params[:user_project][:user_id]).first.present?
           flash[:notice] = "Already Assigned!"
           redirect_to user_projects_path
         else
 	        @user_project.save
-	        redirect_to @user_project
+	        redirect_to user_projects_path
 	      end
 	end
 
@@ -45,6 +45,6 @@ class UserProjectsController < ApplicationController
 
 	private
 	def user_project_params
-		params.require(:user_project).permit(:user_id, :project_id, :task_id)
+		params.require(:user_project).permit(:user_id, :project_id,)
 	end
 end

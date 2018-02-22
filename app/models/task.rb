@@ -1,3 +1,3 @@
 class Task < ApplicationRecord
-	has_many :user_projects
+	belongs_to :project
 end

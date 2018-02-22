@@ -8,10 +8,10 @@ class TasksController < ApplicationController
 	end
 
 	def create
-		@task = Task.new(task_params)
-		@task.save
-		redirect_to tasks_path
-	end
+    @project = Project.find(params[:project_id])
+    @task = @project.tasks.create(task_params)
+    redirect_to project_path(@project)
+  end
 
 	private
 	def task_params

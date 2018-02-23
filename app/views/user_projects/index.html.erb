@@ -20,16 +20,17 @@
       <td><%= link_to 'Assign Task', new_user_project_assign_task_path(project.user.id,project.project.id) %></td>
 
 
+
     </tr>
   <% end %>
 </table>
 <% else%>
-<%current_user.projects.each do |project| %>
- <p>
-  <strong>Project_name:</strong>
-  <%= project.project_name %>
-</p>
-<% end %>
+  <%current_user.projects.each do |project| %>
+    <p>
+      <strong>Project_name:</strong>
+      <%= project.project_name %>
+    </p>
+  <% end %>
 <% end %>
 
 <%= link_to 'Back', root_path %> 

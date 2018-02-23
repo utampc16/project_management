@@ -8,6 +8,11 @@ Rails.application.routes.draw do
 	resources :assign_tasks
 
 
+	resources :projects do
+		resources :tasks
+	end
+
+
 	resources :users do
 		resources :projects do
 			resources :assign_tasks

@@ -1,23 +1,26 @@
 <p>
   <strong>User_name:</strong>
-  <%= @user_project.user.email%>
+  <%= @user.email%>
 </p>
  
 <p>
   <strong>Project_name:</strong>
-  <%= @user_project.project.project_name %>
+  <%= @project.project_name %>
 </p>
 
 <h2>Tasks</h2>
-<%= form_with scope: :Assigned_task, url: user_projects_path,  local: true do |form| %>  
-  <p>
+<%= form_with scope: :Assign_task, url: assign_tasks_path,  local: true do |f| %>  
 
-	<%= form.label :task %><br>
-	<%= form.collection_select :user_id,  @user_project.project.tasks,:id,:task_name, include_blank: true %>
+  <p>
+    <%= f.label :task_id %><br>
+	  <%= f.collection_select :task_id,  @project.tasks,:id,:task_name, include_blank: true %>
+    <%= f.hidden_field :user_id, :value => @user.id%>
+    <%= f.hidden_field :project_id, :value => @project.id%>
+
   </p>
 
   <p>
-	  <%= form.submit %>
+	  <%= f.submit %>
   </p>
  
 <% end %>

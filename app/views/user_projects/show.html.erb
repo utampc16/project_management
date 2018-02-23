@@ -8,18 +8,6 @@
   <%= @user_project.project.project_name %>
 </p>
 
-<h2>Tasks</h2>
-<%= form_with scope: :Assigned_task, url: user_projects_path,  local: true do |form| %>  
-  <p>
 
-	<%= form.label :task %><br>
-	<%= form.collection_select :user_id,  @user_project.project.tasks,:id,:task_name, include_blank: true %>
-  </p>
-
-  <p>
-	  <%= form.submit %>
-  </p>
- 
-<% end %>
 
 <%= link_to 'Back', user_projects_path %>

@@ -5,19 +5,20 @@
   <tr>
     <th>User Name</th>
     <th>Project Name</th>
-    <th colspan="4"></th>
+    <th colspan="5"></th>
   </tr>
- 
-  <% @user_project.each do |project| %>
+  <% @user_project.each do |b| %>
     <tr>
-      <td><%= project.user.email %></td>
-      <td><%= project.project.project_name %></td>
+      <td><%= b.user.email %></td>
+      <td><%= b.project.try(:project_name)  %></td>
      
       
-      <td><%= link_to 'Show', user_project_path(project) %></td>
-      <td><%= link_to 'Edit', edit_user_project_path(project) %></td>
-      <td><%= link_to 'Destroy', user_project_path(project), method: :delete %></td>
-      <td><%= link_to 'Assign Task', new_user_project_assign_task_path(project.user.id,project.project.id) %></td>
+      <td><%= link_to 'Show', user_project_path(b) %></td>
+      <td><%= link_to 'Edit', edit_user_project_path(b) %></td>
+      <td><%= link_to 'Destroy', user_project_path(b), method: :delete %></td>
+      <td><%= link_to 'Assign Task', new_user_project_assign_task_path(b.user.id, b.project.id) %></td>
+      <td><%= link_to 'Assigned Tasks', assign_tasks_path(project_id: b.project.id, user_id: b.user.id) %></td>
+
 
 
 
@@ -27,10 +28,23 @@
 <% else%>
   <%current_user.projects.each do |project| %>
     <p>
-      <strong>Project_name:</strong>
-      <%= project.project_name %>
+
+      <h3>Project_name: <b><%= project.project_name %></b></h3>
+
+      <table class="table table-striped">
+      <th> <strong>Task_name: </strong></th>
+      <%current_user.assign_tasks.where(project_id: project.id).each do |assign_task| %>
+        <tr> 
+          <td><%= assign_task.task.task_name %></td>
+        </tr>
+      <% end %>
+      </table>
+      
     </p>
   <% end %>
+
+ 
+
 <% end %>
 
 <%= link_to 'Back', root_path %> 

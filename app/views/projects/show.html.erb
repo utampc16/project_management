@@ -28,14 +28,23 @@
   <%= @project.project_cost %>
 </p>
 
-<h2>Tasks</h2>
-<% @project.tasks.each do |task| %>
-  <p>
-    <strong>Task:</strong>
-    <%= task.task_name %>
-  </p>
- 
-<% end %>
+
+<table class="table table-striped">
+  <tr>
+    <th><h2><b>Tasks</b></h2></th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @project.tasks.each do |a| %>
+    <tr>
+      <td><%= a.task_name %></td>
+      <td><%= link_to 'Destroy', project_task_path(@project, a.id), method: :delete %></td>
+    
+
+    </tr>
+  <% end %>
+</table>
+
 
 <h2>Add a Task:</h2>
 <%= form_with(model: [ @project, @project.tasks.build ], local: true) do |form| %>

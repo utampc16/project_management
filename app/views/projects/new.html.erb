@@ -1,5 +1,13 @@
 <h2>New Project</h2>
 
+<% if @project.errors.any? %>
+  <ul>
+    <% @project.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with scope: :project, url: projects_path,  local: true do |form| %>  <p>
     <%= form.label :project_name %><br>
     <%= form.text_field :project_name %>

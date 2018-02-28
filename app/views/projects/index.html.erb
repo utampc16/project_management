@@ -15,7 +15,8 @@
       <td><%= project.technology.technology_name %></td>
       <td><%= link_to 'Show', project_path(project) %></td>
       <td><%= link_to 'Edit', edit_project_path(project) %></td>
-      <td><%= link_to 'Destroy', project_path(project), method: :delete %></td>
+      <td><%= link_to 'Destroy', project_path(project), method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
 
 
     </tr>

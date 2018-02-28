@@ -4,7 +4,7 @@ class UserProjectsController < ApplicationController
 	end
 
 	def new
-		@user_project = UserProject.new
+    @user_project = UserProject.new
 	end
 
 	def create
@@ -45,6 +45,6 @@ class UserProjectsController < ApplicationController
 
 	private
 	def user_project_params
-		params.require(:user_project).permit(:user_id, :project_id,)
+		params.require(:user_project).permit(:user_id, :project_id)
 	end
 end

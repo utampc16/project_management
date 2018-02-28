@@ -9,6 +9,14 @@
 </p>
 
 <h2>Tasks</h2>
+
+<% if @assign_task.errors.any? %>
+  <ul>
+    <% @assign_task.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
 <%= form_with scope: :Assign_task, url: assign_tasks_path,  local: true do |f| %>  
 
   <p>

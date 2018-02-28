@@ -1,6 +1,7 @@
 <h2>Edit Project</h2>
 
-<%= form_for @project, method: :PATCH,local: true do |form| %>  <p>
+<%= form_for @project, method: :PATCH,local: true do |form| %>
+  <p>
     <%= form.label :project_name %><br>
     <%= form.text_field :project_name %>
   </p>

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 	resources :projects
 	resources :assign_tasks
 
+	match '/assign_tasks/complete' => 'assign_tasks#complete', as: 'complete_assign_task', via: :post
+
 
 	resources :projects do
 		resources :tasks

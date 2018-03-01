@@ -26,6 +26,13 @@ class AssignTasksController < ApplicationController
   	redirect_to assign_tasks_path(project_id: @assign_task.project.id, user_id: @assign_task.user.id)
  
   end
+
+  def complete
+		@assign_task = current_user.assign_tasks.find(params[:id])
+		@assign_task.completed = true
+		@assign_task.save
+		redirect_to user_projects_path
+	end
     
 
 	private

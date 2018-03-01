@@ -32,11 +32,22 @@
       <h3>Project_name: <b><%= project.project_name %></b></h3>
 
       <table class="table table-striped">
-      <th> <strong>Task_name: </strong></th>
+      <tr>
+        <th> <strong>Task_name: </strong></th>
+        <th> <strong>Status: </strong></th>
+        <th colspan="3"></th>
+      </tr>
       <%current_user.assign_tasks.where(project_id: project.id).each do |assign_task| %>
         <tr> 
           <td><%= assign_task.task.task_name %></td>
+          <td><%= link_to "Complete", complete_assign_task_path(id: assign_task.id), method: :post %></td>
+        <td> <% if assign_task.completed %>
+            Completed
+          <% else %>
+            Inprocess
+          <% end %></td>
         </tr>
+
       <% end %>
       </table>
       

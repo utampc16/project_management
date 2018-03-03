@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'meetings/index'
+
   get 'home/index'
 
    root 'welcome#index'
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   devise_for :users
 	resources :projects
 	resources :assign_tasks
+	resources :meetings
 
 	match '/assign_tasks/complete' => 'assign_tasks#complete', as: 'complete_assign_task', via: :post
 

@@ -1,0 +1,33 @@
+<h2>New Meeting</h2>
+
+
+
+<%= form_with scope: :meeting, url: meetings_path,  local: true do |form| %>  <p>
+    <%= form.label :purpose %><br>
+    <%= form.text_field :purpose %>
+  </p>
+ 
+  <p>
+    <%= form.label :date %><br>
+    <%= form.text_field :date, :id=>'datepicker' %>
+  </p> 
+
+  <p>
+    <%= form.label :time %><br>
+    <%= form.text_field :time, :id=> 'timepicker' %>
+  </p> 
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>  
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#datepicker').datepicker();
+    $('#datepicker1').datepicker();
+     $('#timepicker').timepicker();
+
+  });
+</script>

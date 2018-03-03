@@ -4,6 +4,8 @@
   <%= link_to 'All Projects',  projects_path %></br>
   <%= link_to 'Assign Project', new_user_project_path %></br>
   <%= link_to 'Assigned Projects', user_projects_path %></br> 
+  <%= link_to 'Create Meeting', new_meeting_path %></br>
+  <%= link_to 'All Meetings', meetings_path %>
 <% else %>
   <%= link_to 'Assigned Projects', user_projects_path %> 
 <% end %>

@@ -40,8 +40,18 @@
       <%current_user.assign_tasks.where(project_id: project.id).each do |assign_task| %>
         <tr> 
           <td><%= assign_task.task.task_name %></td>
-          <td><%= link_to "Complete", complete_assign_task_path(id: assign_task.id), method: :post %></td>
-        <td> <% if assign_task.completed %>
+          <td>
+
+            <%#= select_tag :assign_task, options_for_select(AssignTask.all.collect {|e| ["#{e.completed} - #{e.inprocess}", e.id] }), :include_blank => true %>
+
+            <%= link_to "Complete", complete_assign_task_path(id: assign_task.id), method: :post %>
+              
+          </td>
+
+
+
+
+          <td> <% if assign_task.completed %>
             Completed
           <% else %>
             Inprocess

@@ -13,9 +13,22 @@
   </p> 
 
   <p>
-    <%= form.label :time %><br>
-    <%= form.text_field :time, :id=> 'timepicker' %>
+    <%#= form.label :time %><br>
+    <%#= form.text_field :time, :class=> 'timepicker' %>
   </p> 
+  <input id="basicExample" type="text" class="timepicker">
+
+
+<div class='input-append bootstrap-timepicker-component' style='display: inline;'>
+  <input class='dateselect-time input-small timepicker' type='text' data-time='12:45 PM'>
+  <span class='add-on'><i class='icon-time'></i></span>
+</div> 
+
+
+
+
+
+
 
   <p>
     <%= form.submit %>
@@ -24,10 +37,20 @@
 <% end %>  
 
 <script type="text/javascript">
-  $(document).ready(function(){
-    $('#datepicker').datepicker();
-    $('#datepicker1').datepicker();
-     $('#timepicker').timepicker();
+  // $('.timepicker').timepicker(alert('vfdvfv'))
+  //   .on('changeTime', function(ev) {
+  //     alert('time has changed');
+  //     })
 
+  $('.timepicker').timepicker().on('show.timepicker', function(e) {
+    console.log('The time is ' + e.time.value);
+    console.log('The hour is ' + e.time.hours);
+    console.log('The minute is ' + e.time.minutes);
+    console.log('The meridian is ' + e.time.meridian);
   });
+
 </script>
+
+
+
+

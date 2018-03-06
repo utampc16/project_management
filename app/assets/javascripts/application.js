@@ -13,14 +13,10 @@
 //= require rails-ujs
 //= require jquery
 //= require bootstrap-sprockets
-
-//= require bootstrap-timepicker
+//= require bootstrap-datepicker
+//= require timpicker
+//= require timepicker.min
 //= require_tree .
 
   
-$('.timepicker').timepicker({
-    'minTime': '2:00pm',
-    'maxTime': '11:30pm',
-    'showDuration': true
-})
   

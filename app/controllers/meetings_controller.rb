@@ -9,8 +9,18 @@ class MeetingsController < ApplicationController
 
   def create
   	@meeting = Meeting.new(meeting_params)
-  	debugger
   	@meeting.save
+  	redirect_to meetings_path
+  end
+
+  def edit
+  	@meeting = Meeting.find(params[:id])
+  end
+
+  def update
+  	@meeting = Meeting.find(params[:id])
+  	debugger
+  	@meeting.update(meeting_params)
   	redirect_to meetings_path
   end
 

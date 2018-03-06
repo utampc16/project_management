@@ -7,5 +7,6 @@
   <%= link_to 'Create Meeting', new_meeting_path %></br>
   <%= link_to 'All Meetings', meetings_path %>
 <% else %>
-  <%= link_to 'Assigned Projects', user_projects_path %> 
+  <%= link_to 'Assigned Projects', user_projects_path %></br>
+  <%= link_to 'Meetings', meetings_path %> 
 <% end %>

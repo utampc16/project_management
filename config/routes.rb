@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'project_issues/index'
+
+  get 'home1/index'
+
   get 'meetings/index'
 
   get 'home/index'
@@ -25,8 +29,10 @@ Rails.application.routes.draw do
 			resources :assign_tasks
 		end
 	end
-
-
+  
+  resources :projects do
+  	resources :project_issues
+  end
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

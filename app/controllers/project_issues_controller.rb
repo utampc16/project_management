@@ -5,13 +5,19 @@ class ProjectIssuesController < ApplicationController
   end
 
   def create
-  	@issue = Issue.new(issue_params)
-  	@issue.save
+  	@project_issue = Issue.new(project_issue_params)
+  	@project_issue.save
+  	redirect_to project_project_issues_path
+  end
+
+  def destroy
+  	@project_issue = Issue.find(params[:id])
+  	@project_issue.destroy
   	redirect_to project_project_issues_path
   end
 
   private
-  	def issue_params
-  		params.require(:issue).permit(:issue)
+  	def project_issue_params
+  		params.require(:issue).permit(:Issue, :project_id)
   	end
 end

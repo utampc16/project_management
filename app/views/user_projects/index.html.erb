@@ -20,7 +20,7 @@
       <td><%= link_to 'Assign Task', new_user_project_assign_task_path(b.user.id, b.project.id) %></td>
       <td><%= link_to 'Assigned Tasks', assign_tasks_path(project_id: b.project.id, user_id: b.user.id) %></td>
 
-
+     <td><%= b.timesheet.avatar%></td>
 
 
     </tr>

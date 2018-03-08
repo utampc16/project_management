@@ -5,6 +5,7 @@ class Project < ApplicationRecord
   has_many :tasks, dependent: :destroy
   has_many :assign_tasks, dependent: :destroy
   has_many :issues, dependent: :destroy
+  
 
   mount_uploader :image, ImageUploader
 end

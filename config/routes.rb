@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'timesheets/index'
+
   get 'project_issues/index'
 
   get 'home1/index'
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
 	resources :projects
 	resources :assign_tasks
 	resources :meetings
+	resources :timesheets
 
 	match '/assign_tasks/complete' => 'assign_tasks#complete', as: 'complete_assign_task', via: :post
 

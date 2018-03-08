@@ -1,0 +1,38 @@
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/utampc16/multiple_image_upload_carrierwave.git
+git push -u origin master
+================================================
+
+git status
+git diff file_name
+git add file_name
+git commit -m "task related work"
+git push origin master
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+        <div class="input-group bootstrap-timepicker timepicker">
+            <input id="timepicker1" type="text" class="form-control input-small">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+        </div>
+ 
+        <script type="text/javascript">
+            $('#timepicker1').timepicker();
+        </script>
+   

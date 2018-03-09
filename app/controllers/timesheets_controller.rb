@@ -9,16 +9,18 @@ class TimesheetsController < ApplicationController
   end
 
   def create
-  	debugger
   	@timesheet = Timesheet.new(timesheet_params)
   	@timesheet.save
   	redirect_to @timesheet
   end
 
   def show
-  	debugger
   	@timesheet = Timesheet.find(params[:id])
   	# @timesheet = Timesheet.all
+  end
+
+  def projects
+  	@timesheet = Timesheet.where(project_id: params[:id], user_id: params[:user_id])
   end
 
   private

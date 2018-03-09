@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 	end
   
 	match '/assign_tasks/complete' => 'assign_tasks#complete', as: 'complete_assign_task', via: :post
+	match '/user_projects/complete' => 'user_projects#complete', as: 'complete_user_project', via: :post
 
 
 	resources :projects do

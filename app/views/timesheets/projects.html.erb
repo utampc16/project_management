@@ -1,22 +1,19 @@
-  
 <h1>Timesheets</h1>
  
 <table class="table table-striped">
   <tr>
     <th>Document</th>
-    <th></th>
     <th>Status:</th>
   </tr>
   <% @timesheet.each do |t| %>
     <tr>
       <td><%= t.avatar %></td>
-      <td><%= link_to "Approve", complete_user_project_path(id: t.id), method: :post %></td>
       <td>
-      <% if t.completed%>
+      	<% if t.completed %>
       	Approved
       	<%else%>
       	Pending
-      	<%end%>
+      	<% end %>
       </td>
     </tr>
   <% end %>

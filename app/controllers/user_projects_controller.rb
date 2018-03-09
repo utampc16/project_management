@@ -47,6 +47,14 @@ class UserProjectsController < ApplicationController
 	  @timesheet = Timesheet.where(project_id: params[:id], user_id: params[:user_id])
 	end
 
+	def complete
+		debugger
+		@timesheet = Timesheet.find(params[:id])
+		@timesheet.completed = true
+		@timesheet.save
+		redirect_to user_projects_path
+	end
+
 	private
 	def user_project_params
 		params.require(:user_project).permit(:user_id, :project_id)

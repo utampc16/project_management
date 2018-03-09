@@ -1,4 +1,5 @@
 class Timesheet < ApplicationRecord
-	belongs_to :user_project
+	belongs_to :project
+	belongs_to :user
 	mount_uploader :avatar, AvatarUploader
 end

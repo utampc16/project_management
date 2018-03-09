@@ -43,6 +43,10 @@ class UserProjectsController < ApplicationController
       redirect_to user_projects_path
 	end
 
+	def timesheets
+	  @timesheet = Timesheet.where(project_id: params[:id], user_id: params[:user_id])
+	end
+
 	private
 	def user_project_params
 		params.require(:user_project).permit(:user_id, :project_id)

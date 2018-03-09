@@ -1,19 +1,14 @@
 <%current_user.projects.each do |project| %>
   <p>
-		<h3>Project_name: <b><%= project.project_name %></b></h3>
-		
+		<h3>Project_name: <b><%= project.project_name %></b></h3>   
 	</p>
 
-  
-  
-  
-
-	<%= form_with scope: :timesheet, url: timesheets_path,  local: true do |form| %>  
+  <%= form_with scope: :timesheet, url: timesheets_path,  local: true do |form| %>  
 
 	 
 	  <p>
 	    <%= form.label :avatar %><br>
-	    <%= form.file_field :avatar%>
+	    <%= form.file_field :avatar, required: true %>
 	    <%= form.hidden_field :project_id, :value => project.id%>
 	    <%= form.hidden_field :user_id, :value => current_user.id%>
 	  </p>  
@@ -24,6 +19,4 @@
 
 	<% end %>
 	  
-	  
-
 <% end %>

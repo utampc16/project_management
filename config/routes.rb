@@ -10,14 +10,22 @@ Rails.application.routes.draw do
 
    root 'welcome#index'
    resources :technologies
-   resources :user_projects
-   resources :tasks
+   resources :user_projects do
+	   	member do 
+       get :timesheets
+	   	end
+   end
+  resources :tasks
   devise_for :users
 	resources :projects
 	resources :assign_tasks
 	resources :meetings
-	resources :timesheets
-
+	resources :timesheets do
+		member do
+    get :projects
+	  end
+	end
+  
 	match '/assign_tasks/complete' => 'assign_tasks#complete', as: 'complete_assign_task', via: :post
 
 

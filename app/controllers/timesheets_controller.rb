@@ -1,5 +1,6 @@
 class TimesheetsController < ApplicationController
   def index
+  	#@project = Project.find(params[:project_id])
   	@timesheet = Timesheet.all
   end
 
@@ -8,12 +9,17 @@ class TimesheetsController < ApplicationController
   end
 
   def create
+  	debugger
   	@timesheet = Timesheet.new(timesheet_params)
   	@timesheet.save
-  	redirect_to user_projects_path
+  	redirect_to @timesheet
   end
 
-  
+  def show
+  	debugger
+  	@timesheet = Timesheet.find(params[:id])
+  	# @timesheet = Timesheet.all
+  end
 
   private
   	def timesheet_params
